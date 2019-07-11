@@ -9,4 +9,12 @@ describe('app routes', () => {
         expect(res.text).toEqual(expect.stringContaining('COLORS!!'));
       });
   });
+
+  it('requested / path', () => {
+    return request(app)
+      .get('/color.html?name=red')
+      .then(res => {
+        expect(res.text).toEqual(expect.stringContaining('Color Detail'));
+      });
+  });
 });
